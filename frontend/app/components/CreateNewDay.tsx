@@ -12,7 +12,7 @@ const CreateNewDay = ({ closeModal }: { closeModal: () => void }) => {
         initialValues={{ title: "", exercises: [""] }} //* give empty string to exercise to initialize with one exercise input
         onSubmit={(values) => {
           console.log(
-            `title: ${values.title}, exercises: ${values.exercises.join(",")}`
+            `title: ${values.title}, exercises: ${values.exercises.join(", ")}`
           );
         }}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -30,26 +30,28 @@ const CreateNewDay = ({ closeModal }: { closeModal: () => void }) => {
             <FieldArray name="exercises">
               {({ push, remove }) => (
                 <StyledView>
-                  {values.exercises.map((exercise, index) => (
-                    <StyledView>
-                      <StyledText>Exercise name: </StyledText>
-                      <StyledTextInput
-                        className="w-[100%] p-1 text-black"
-                        placeholder="ex) bench press, squat"
-                        onChangeText={handleChange(`exercises[${index}]`)}
-                        onBlur={handleBlur(`exercises[${index}]`)}
-                        value={exercise}
-                      />
-                      {/* //* Create delete button only when you have more than 1 exercise */}
-                      {index > 0 && (
-                        <StyledPressable onPress={() => remove(index)}>
-                          <StyledText className="w-[100%] p-1 text-black">
-                            Delete
-                          </StyledText>
-                        </StyledPressable>
-                      )}
-                    </StyledView>
-                  ))}
+                  <StyledView>
+                    {values.exercises.map((exercise, index) => (
+                      <StyledView key={index}>
+                        <StyledText>Exercise name: </StyledText>
+                        <StyledTextInput
+                          className="w-[100%] p-1 text-black"
+                          placeholder="ex) bench press, squat"
+                          onChangeText={handleChange(`exercises[${index}]`)}
+                          onBlur={handleBlur(`exercises[${index}]`)}
+                          value={exercise}
+                        />
+                        {/* //* Create delete button only when you have more than 1 exercise */}
+                        {index > 0 && (
+                          <StyledPressable onPress={() => remove(index)}>
+                            <StyledText className="w-[100%] p-1 text-black">
+                              Delete
+                            </StyledText>
+                          </StyledPressable>
+                        )}
+                      </StyledView>
+                    ))}
+                  </StyledView>
 
                   <StyledPressable onPress={() => push("")}>
                     <StyledText className="w-[100%] p-1 text-black">
@@ -60,7 +62,12 @@ const CreateNewDay = ({ closeModal }: { closeModal: () => void }) => {
               )}
             </FieldArray>
             <StyledView className="flex flex-row justify-between">
-              <StyledPressable className="w-[50%]">
+              <StyledPressable
+                className="w-[50%]"
+                onPress={async () => {
+                  await handleSubmit();
+                  closeModal();
+                }}>
                 <StyledText className="text-white m-auto">Save</StyledText>
               </StyledPressable>
               <StyledPressable
