@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { User } from "../models";
 
-export const show = async (req: Request, res: Response) => {
+export const show = async (_: Request, res: Response) => {
   try {
     const users = await User.find();
     const remapUsers = users.map((user) => ({

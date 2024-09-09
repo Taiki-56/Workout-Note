@@ -1,5 +1,5 @@
 import express from "express";
-import { seedRoutes, usersRoutes } from "./routes";
+import { authRoutes, dayRoutes, seedRoutes, usersRoutes } from "./routes";
 
 //* Start Express
 const app = express();
@@ -16,5 +16,7 @@ app.use(express.json());
 //* Routes
 app.use("/api/seed", seedRoutes);
 app.use("/api/users", usersRoutes);
+app.use("/api/day", dayRoutes);
+app.use("/api/auth", authRoutes);
 
 export default app;
