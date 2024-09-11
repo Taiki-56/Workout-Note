@@ -7,10 +7,10 @@
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
     ".expo/types/**/*.ts",
+    "app/@types/**/*.d.ts",
     "expo-env.d.ts"
-    // "app/screens/*.tsx"
   ]
 }
