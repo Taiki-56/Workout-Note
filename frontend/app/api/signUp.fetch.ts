@@ -1,9 +1,4 @@
-import Config from "react-native-config";
-
-// import "dotenv/config";
-// import { API_URL } from "@env";
-
-const API_URL = Config.API_URL;
+const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 type UserType = {
   name: string;
@@ -16,8 +11,7 @@ export const signUpFetch = async (newUser: UserType) => {
 
   console.log(newUser);
 
-  //   const res = await fetch(`${apiUrl}/signUp`, {
-  const res = await fetch("http://localhost:10000/api/auth/signUp", {
+  const res = await fetch(`${API_URL}/auth/signUp`, {
     method: "POST",
     headers: {
       "content-type": "application/json",

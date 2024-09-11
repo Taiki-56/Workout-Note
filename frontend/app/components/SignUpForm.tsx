@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { Formik } from "formik";
 import React, { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GestureResponderEvent } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import * as yup from "yup";
 
 import { signUpFetch } from "../api/signUp.fetch";
@@ -141,21 +141,22 @@ const SignUpForm = () => {
                   }
                 )}>
                 {showPassword ? (
-                  <FaEye
+                  <Icon
+                    name="eye"
                     size={25}
-                    onClick={() => setShowPassword((prev) => !prev)}
+                    onPress={() => setShowPassword((prev) => !prev)}
                   />
                 ) : (
-                  <FaEyeSlash
+                  <Icon
+                    name="eye-slash"
                     size={25}
-                    onClick={() => setShowPassword((prev) => !prev)}
+                    onPress={() => setShowPassword((prev) => !prev)}
                   />
                 )}
               </StyledView>
             </StyledView>
             <StyledPressable
               className="w-[50%] m-auto"
-              // TODO Need to check if () needed for handleSubmit
               onPress={
                 handleSubmit as unknown as (
                   event: GestureResponderEvent
