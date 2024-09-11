@@ -1,4 +1,6 @@
+import cors from "cors";
 import express from "express";
+
 import { authRoutes, dayRoutes, seedRoutes, usersRoutes } from "./routes";
 
 //* Start Express
@@ -6,11 +8,12 @@ const app = express();
 
 //* Middlewares
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: "http://localhost:8081", // 許可するオリジンを指定
-//   })
-// );
+//* allow the request from the port 8081
+app.use(
+  cors({
+    origin: "http://localhost:8081",
+  })
+);
 
 // app.use(morgan("dev"));
 //* Routes

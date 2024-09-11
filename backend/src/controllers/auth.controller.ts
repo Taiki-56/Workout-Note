@@ -8,13 +8,13 @@ type RequestBodyType = {
   password: string;
 };
 
-export const register = async (
+export const signUp = async (
   req: Request<never, never, RequestBodyType>,
   res: Response
 ) => {
   const payload = req.body;
 
-  const emailExisted = await User.find({ email: payload.email });
+  const emailExisted = await User.findOne({ email: payload.email });
 
   if (emailExisted) {
     return res.status(400).json({

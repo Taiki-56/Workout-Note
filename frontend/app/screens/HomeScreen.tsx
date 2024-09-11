@@ -49,4 +49,5 @@ const HomeScreen = () => {
   );
 };
 
+//* wuthout withExpoSnack, you can't see any styles with nativewind
 export default withExpoSnack(HomeScreen);

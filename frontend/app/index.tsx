@@ -1,11 +1,13 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import HomeScreen from "./screens/HomeScreen";
+import SignUpScreen from "./screens/SignUpScreen";
+import NativewindComponents from "./styles/NativewindComponents";
 
-const Stack = createNativeStackNavigator();
+const { StyledView, StyledPressable, StyledText, StyledModal, StyledImage } =
+  NativewindComponents;
 
 const App = () => {
-  return <HomeScreen />;
+  // return <HomeScreen />;
+  return <SignUpScreen />;
 };
 
 export default App;
