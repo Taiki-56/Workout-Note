@@ -6,9 +6,10 @@ export const create = async (req: Request, res: Response) => {
   console.log(payload);
 
   const newDay = new Day({
-    user_id: payload.user_id,
+    // user_id: payload.user_id,
+    user_id: "66de725d03cfe3b9347dfff7",
     title: payload.title,
-    exercise: payload.exercise,
+    exercises: payload.exercises,
   });
 
   try {
