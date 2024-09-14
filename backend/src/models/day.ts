@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 type DayType = {
   user_id: string;
   title: string;
-  exercise: string[];
+  exercises: string[];
   createdAt: Date;
   updatedAt: Date;
 };
@@ -11,7 +11,7 @@ type DayType = {
 const daySchema = new Schema<DayType>({
   user_id: String,
   title: String,
-  exercise: [String],
+  exercises: [String],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

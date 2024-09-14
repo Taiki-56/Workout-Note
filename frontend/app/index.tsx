@@ -1,13 +1,13 @@
 import React from "react";
-import SignUpScreen from "./screens/SignUpScreen";
+import HomeScreen from "./screens/HomeScreen";
 import NativewindComponents from "./styles/NativewindComponents";
 
 const { StyledView, StyledPressable, StyledText, StyledModal, StyledImage } =
   NativewindComponents;
 
 const App = () => {
-  // return <HomeScreen />;
-  return <SignUpScreen />;
+  return <HomeScreen />;
+  // return <SignUpScreen />;
 };
 
 export default App;
